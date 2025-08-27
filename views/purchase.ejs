@@ -1,37 +1,109 @@
-<div class="purchase-container max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
-        <h1 class="text-3xl font-bold text-center mb-6">شراء FREP</h1>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>FREEPAL - شراء FREP</title>
+        <link rel="stylesheet" href="style.css" />
+          <style>
+              body {
+                    margin: 0;
+                          font-family: 'Tajawal', sans-serif;
+                                background-color: #f9f9f9;
+                                      color: #222;
+                                            text-align: center;
+                                                }
 
-          <!-- زر الاتصال بالمحفظة -->
-            <div class="text-center mb-6">
-                <button id="connectWallet" class="btn-primary">اتصال بالمحفظة</button>
-                    <button id="disconnectWallet" class="btn-secondary hidden">فصل المحفظة</button>
-                        <p id="walletAddress" class="mt-2 text-gray-600"></p>
-                          </div>
+                                                    .purchase-container {
+                                                          max-width: 600px;
+                                                                margin: 40px auto;
+                                                                      padding: 20px;
+                                                                            background: #fff;
+                                                                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                                                                                        border-radius: 15px;
+                                                                                            }
 
-                            <!-- اختيار الشبكة -->
-                              <div class="text-center mb-6">
-                                  <button id="switchNetwork" class="btn-secondary hidden">تغيير الشبكة</button>
-                                      <p id="networkInfo" class="mt-2 text-gray-500"></p>
-                                        </div>
+                                                                                                h1 {
+                                                                                                      font-size: 2rem;
+                                                                                                            margin-bottom: 20px;
+                                                                                                                }
 
-                                          <!-- حاسبة -->
-                                            <div class="bg-gray-50 p-4 rounded-lg shadow-inner mb-6">
-                                                <div class="flex justify-around mb-4">
-                                                      <img src="/img/solana.png" class="h-8" alt="Solana" />
-                                                            <img src="/img/usdt.png" class="h-8" alt="USDT" />
-                                                                  <img src="/img/usdc.png" class="h-8" alt="USDC" />
-                                                                      </div>
-                                                                          <p class="text-center text-gray-700">سعر FREP = 0.001$</p>
-                                                                              
-                                                                                  <input id="amountInput" type="number" placeholder="أدخل الكمية" class="input w-full mt-4" />
-                                                                                      <p id="usdValue" class="mt-2 text-gray-700 text-center"></p>
-                                                                                        </div>
+                                                                                                                    button {
+                                                                                                                          padding: 10px 20px;
+                                                                                                                                margin: 5px;
+                                                                                                                                      border: none;
+                                                                                                                                            border-radius: 8px;
+                                                                                                                                                  cursor: pointer;
+                                                                                                                                                        font-size: 1rem;
+                                                                                                                                                            }
 
-                                                                                          <!-- زر شراء -->
-                                                                                            <div class="text-center">
-                                                                                                <button id="buyNow" class="btn-buy" disabled>شراء الآن</button>
-                                                                                                  </div>
-                                                                                                  </div>
+                                                                                                                                                                .btn-primary { background-color: #4F46E5; color: #fff; }
+                                                                                                                                                                    .btn-secondary { background-color: #E5E7EB; color: #111; }
+                                                                                                                                                                        .btn-buy { background-color: #10B981; color: #fff; font-weight: bold; width: 100%; }
 
-                                                                                                  <!-- ربط ملف الجافاسكربت -->
-                                                                                                  <script src="/js/purchase.js"></script>
+                                                                                                                                                                            .hidden { display: none; }
+
+                                                                                                                                                                                input {
+                                                                                                                                                                                      width: 100%;
+                                                                                                                                                                                            padding: 10px;
+                                                                                                                                                                                                  margin-top: 10px;
+                                                                                                                                                                                                        border-radius: 8px;
+                                                                                                                                                                                                              border: 1px solid #ccc;
+                                                                                                                                                                                                                    font-size: 1rem;
+                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                            .text-center { text-align: center; }
+                                                                                                                                                                                                                                .mb-2 { margin-bottom: 0.5rem; }
+                                                                                                                                                                                                                                    .mb-4 { margin-bottom: 1rem; }
+                                                                                                                                                                                                                                        .mb-6 { margin-bottom: 1.5rem; }
+                                                                                                                                                                                                                                            .mt-2 { margin-top: 0.5rem; }
+                                                                                                                                                                                                                                                .mt-4 { margin-top: 1rem; }
+                                                                                                                                                                                                                                                    .flex { display: flex; justify-content: space-around; align-items: center; }
+                                                                                                                                                                                                                                                        .shadow-inner { box-shadow: inset 0 2px 6px rgba(0,0,0,0.1); }
+                                                                                                                                                                                                                                                            .rounded-lg { border-radius: 12px; }
+                                                                                                                                                                                                                                                                .p-4 { padding: 16px; }
+                                                                                                                                                                                                                                                                    .p-6 { padding: 24px; }
+                                                                                                                                                                                                                                                                        .bg-gray-50 { background-color: #F9FAFB; }
+                                                                                                                                                                                                                                                                          </style>
+                                                                                                                                                                                                                                                                          </head>
+                                                                                                                                                                                                                                                                          <body>
+
+                                                                                                                                                                                                                                                                          <div class="purchase-container">
+                                                                                                                                                                                                                                                                            <h1>شراء FREP</h1>
+
+                                                                                                                                                                                                                                                                              <!-- زر الاتصال -->
+                                                                                                                                                                                                                                                                                <div class="text-center mb-6">
+                                                                                                                                                                                                                                                                                    <button id="connectWallet" class="btn-primary">اتصل بالمحفظة</button>
+                                                                                                                                                                                                                                                                                        <button id="disconnectWallet" class="btn-secondary hidden">فصل المحفظة</button>
+                                                                                                                                                                                                                                                                                            <p id="walletAddress" class="mt-2 text-gray-600"></p>
+                                                                                                                                                                                                                                                                                              </div>
+
+                                                                                                                                                                                                                                                                                                <!-- تبديل الشبكة -->
+                                                                                                                                                                                                                                                                                                  <div class="text-center mb-6">
+                                                                                                                                                                                                                                                                                                      <button id="switchNetwork" class="btn-secondary hidden">تغيير الشبكة</button>
+                                                                                                                                                                                                                                                                                                          <p id="networkInfo" class="mt-2 text-gray-500">الشبكة: devnet</p>
+                                                                                                                                                                                                                                                                                                            </div>
+
+                                                                                                                                                                                                                                                                                                              <!-- تفاصيل الشراء -->
+                                                                                                                                                                                                                                                                                                                <div class="bg-gray-50 p-4 rounded-lg shadow-inner mb-6">
+                                                                                                                                                                                                                                                                                                                    <div class="flex mb-4">
+                                                                                                                                                                                                                                                                                                                          <img src="/img/solana.png" class="h-8" alt="Solana" />
+                                                                                                                                                                                                                                                                                                                                <img src="/img/usdt.png" class="h-8" alt="USDT" />
+                                                                                                                                                                                                                                                                                                                                      <img src="/img/usdc.png" class="h-8" alt="USDC" />
+                                                                                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                                                                                                              <p class="text-center text-gray-700">سعر FREP = 0.001$</p>
+                                                                                                                                                                                                                                                                                                                                                  <input id="amountInput" type="number" placeholder="أدخل الكمية" />
+                                                                                                                                                                                                                                                                                                                                                      <p id="usdValue" class="mt-2 text-gray-700 text-center">القيمة بالدولار: $0.0000</p>
+                                                                                                                                                                                                                                                                                                                                                        </div>
+
+                                                                                                                                                                                                                                                                                                                                                          <!-- زر الشراء -->
+                                                                                                                                                                                                                                                                                                                                                            <div class="text-center">
+                                                                                                                                                                                                                                                                                                                                                                <button id="buyNow" class="btn-buy" disabled>شراء الآن</button>
+                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                  </div>
+
+                                                                                                                                                                                                                                                                                                                                                                  <!-- ربط JS -->
+                                                                                                                                                                                                                                                                                                                                                                  <script type="module" src="/js/purchase.js"></script>
+
+                                                                                                                                                                                                                                                                                                                                                                  </body>
+                                                                                                                                                                                                                                                                                                                                                                  </html>
