@@ -85,7 +85,7 @@ import {
                                                                                 if (!amount || amount <= 0) return alert("أدخل كمية صالحة");
 
                                                                                   const lamports = amount * FREP_PRICE * LAMPORTS_PER_SOL;
-                                                                                    const treasury = new PublicKey("ضع_عنوان_محفظتك_على_Devnet"); // ضع عنوان محفظتك التجريبية
+                                                                                    const treasury = new PublicKey("G14KXQj3V5gcPgVMS4MQHaGYxuPhCVfVtf7wHJ7yYx7q"); // ضع عنوان محفظتك التجريبية
 
                                                                                       const transaction = new Transaction().add(
                                                                                           SystemProgram.transfer({
